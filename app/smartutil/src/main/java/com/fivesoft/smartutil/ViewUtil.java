@@ -78,4 +78,50 @@ public class ViewUtil {
         setPadding(view, left, view.getPaddingTop(), view.getPaddingRight(), view.getPaddingBottom());
     }
 
+    public static int getViewHeight(View view) {
+        int widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(Screen.getWidth(view.getContext()), View.MeasureSpec.AT_MOST);
+        int heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        view.measure(widthMeasureSpec, heightMeasureSpec);
+        return view.getMeasuredHeight();
+    }
+
+    public static int getViewWidth(View view) {
+        int heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(Screen.getHeight(view.getContext()), View.MeasureSpec.AT_MOST);
+        int widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        view.measure(widthMeasureSpec, heightMeasureSpec);
+        return view.getMeasuredWidth();
+    }
+
+
+    public static int getMarginLeft(View view){
+        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            return p.leftMargin;
+        }
+        return 0;
+    }
+
+    public static int getMarginRight(View view){
+        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            return p.rightMargin;
+        }
+        return 0;
+    }
+
+    public static int getMarginTop(View view){
+        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            return p.topMargin;
+        }
+        return 0;
+    }
+
+    public static int getMarginBottom(View view){
+        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            return p.bottomMargin;
+        }
+        return 0;
+    }
 }
