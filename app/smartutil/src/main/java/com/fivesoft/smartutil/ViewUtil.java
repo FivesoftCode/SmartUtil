@@ -92,7 +92,6 @@ public class ViewUtil {
         return view.getMeasuredWidth();
     }
 
-
     public static int getMarginLeft(View view){
         if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
