@@ -1,4 +1,4 @@
-package com.fivesoft.smartutil.file;
+package com.fivesoft.smartutil;
 
 import android.app.Activity;
 import android.content.ContentResolver;
