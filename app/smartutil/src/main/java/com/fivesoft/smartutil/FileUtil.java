@@ -197,7 +197,7 @@ public class FileUtil {
 
     private static void shareInternal(Uri uri, String title, String shareMessage, Activity activity){
         Intent shareIntent = new Intent("android.intent.action.SEND");
-        shareIntent.setType("image/*");
+        shareIntent.setType(getMimeType(uri, activity));
         shareIntent.putExtra("android.intent.extra.TEXT", shareMessage);
         shareIntent.putExtra("android.intent.extra.STREAM", uri);
         shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -212,7 +212,6 @@ public class FileUtil {
         }
 
         activity.startActivity(chooser);
-        share(null, null, null, null);
     }
 
     /**
