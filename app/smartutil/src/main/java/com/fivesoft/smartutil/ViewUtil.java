@@ -1,5 +1,7 @@
 package com.fivesoft.smartutil;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -122,5 +124,13 @@ public class ViewUtil {
             return p.bottomMargin;
         }
         return 0;
+    }
+
+    public static Bitmap getViewBitmap(View view){
+        Bitmap b = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(b);
+        view.layout(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
+        view.draw(c);
+        return b;
     }
 }

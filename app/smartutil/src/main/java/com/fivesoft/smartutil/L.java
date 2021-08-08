@@ -55,4 +55,38 @@ public class L {
 
     }
 
+    /**
+     * Shows passed objects in Logcat with priority {@link android.util.Log#ASSERT}<br>
+     * in pattern: TAG1 + ": " + OBJECT1 + TAG2 + ": " + OBJECT2 + ...
+     * <br>
+     * <b>Example:</b>
+     * <br>
+     * <pre>
+     *     {@code L.log("Apples", 10, "Bananas", 4, "Holy cows", "45");}
+     * </pre>
+     * Gives:<br>
+     * <pre>
+     * {@code "Apples: 10
+     *         Bananas: 4
+     *         Holy cows: 45"}
+     * </pre>
+     * @param message your message
+     */
+
+    public static void log(Object... message){
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < message.length; i+=2) {
+
+            if(i != 0)
+                builder.append("\n");
+
+            builder.append(message[i]).append(": ");
+            if(i + 1 < message.length)
+                builder.append(message[i + 1]);
+        }
+
+        Log.println(Log.ASSERT, "5S Log", builder.toString());
+    }
+
 }

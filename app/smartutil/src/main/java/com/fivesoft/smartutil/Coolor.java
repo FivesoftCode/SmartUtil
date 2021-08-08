@@ -2,6 +2,8 @@ package com.fivesoft.smartutil;
 
 import android.graphics.Color;
 
+import java.util.Random;
+
 public class Coolor {
 
     /**
@@ -86,6 +88,16 @@ public class Coolor {
         int c = 255 - (255 * percent / 100);
 
         return Color.parseColor(String.format("#%02x%02x%02x", c, c, c));
+    }
+
+    /**
+     * Generates random color.
+     * @return random color.
+     */
+
+    public static int random(){
+        Random rnd = new Random();
+        return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
     }
 
     /**
