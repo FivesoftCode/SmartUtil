@@ -76,8 +76,8 @@ public class ViewUtil {
         setPadding(view, view.getPaddingTop(), top, view.getPaddingRight(), view.getPaddingBottom());
     }
 
-    public static void setPaddingBottom(View view, int left){
-        setPadding(view, left, view.getPaddingTop(), view.getPaddingRight(), view.getPaddingBottom());
+    public static void setPaddingBottom(View view, int bottom){
+        setPadding(view, view.getPaddingLeft(), view.getPaddingTop(), view.getPaddingRight(), bottom);
     }
 
     public static int getViewHeight(View view) {

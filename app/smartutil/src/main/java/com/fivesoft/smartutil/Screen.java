@@ -1,5 +1,6 @@
 package com.fivesoft.smartutil;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -7,6 +8,7 @@ import android.graphics.Point;
 import android.view.Display;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
 
@@ -103,6 +105,25 @@ public class Screen {
                 (getAbsoluteHeight(context) > getHeight(context));
     }
 
+    public static void setFullScreen(Activity activity){
+        activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+    }
+
+    public static void setStatusBarVisibility(Activity activity, boolean visible){
+        if(visible){
+            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        } else {
+            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+    }
+
+    public static void setNavigationBarVisibility(Activity activity, boolean visible){
+        if(visible){
+            activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        } else {
+            activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        }
+    }
 
     //Private methods
 
